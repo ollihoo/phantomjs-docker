@@ -7,4 +7,6 @@ RUN tar -xjf phantomjs-2.1.1-linux-x86_64.tar.bz2
 RUN rm *.bz2
 RUN mv phantomjs-* /usr/share/phantomjs
 RUN ln -s /usr/share/phantomjs/bin/phantomjs /usr/bin/phantomjs
-CMD [ "phantomjs", "--webdriver=4444" ]
+COPY phantomjs.sh /phantomjs.sh
+RUN chmod +x /phantomjs.sh
+CMD [ "/phantomjs.sh" ]
